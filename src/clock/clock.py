@@ -1,8 +1,10 @@
 import time 
 
 class Clock: 
-    def __init__(self, name, ): 
+    # Python doesn't have function overloading
+    def __init__(self, name, timer_list = None): 
         self.name = name
+        self.timer_list = [] if timer_list is None else timer_list
     
     def run(self):
         while (True):
