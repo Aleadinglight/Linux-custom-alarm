@@ -7,7 +7,8 @@ if __name__ == "__main__":
     
     # -t, --timer-list 
     # -a, --add-alarm-sound
-
+    # -d, --download-alarm-sound
+    
     # Get the arguments from the user
     args = parser.parse_args()
     
