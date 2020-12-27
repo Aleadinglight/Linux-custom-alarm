@@ -1,4 +1,5 @@
 import time 
+from timer.timer import Timer
 
 class Clock: 
     # Python doesn't have function overloading
@@ -24,5 +25,5 @@ class Clock:
 
 if __name__ == "__main__":
     new_clock = Clock("Clock 1")
-    new_clock.run()
+    print(Timer)
     
