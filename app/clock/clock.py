@@ -1,5 +1,5 @@
 import time 
-from timer.timer import Timer
+from timer import Timer
 
 class Clock: 
     # Python doesn't have function overloading
