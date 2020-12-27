@@ -5,3 +5,16 @@ class Timer:
         self.minute = minute
         self.second = second
         self.sound = sound
+    
+    # To tring method
+    def get_time_as_tring():
+        return ""
+    
+    # Check equal as another time object
+    def is_equal(self, another_timer):
+        if (another_timer.hour == self.hour and another_timer.minute == self.minute and another_timer.second == self.second):
+            return True
+        return False
+    
+    # Check equal as string entry
+    

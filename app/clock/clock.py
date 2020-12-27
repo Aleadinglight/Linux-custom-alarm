@@ -1,5 +1,6 @@
 import time 
 from timer import Timer
+from playsound import playsound
 
 class Clock: 
     # Python doesn't have function overloading
@@ -20,10 +21,12 @@ class Clock:
                     
             time.sleep(1)
     
-    def trigger_alarm(): 
+    def trigger_alarm(self): 
         print("Ring ring ring! Motherfucker!")
+        playsound("../../resources/sounds/RickandMorty.mp3")
 
 if __name__ == "__main__":
     new_clock = Clock("Clock 1")
-    print(Timer)
+    new_clock.trigger_alarm()
+    
     
