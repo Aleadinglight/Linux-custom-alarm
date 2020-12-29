@@ -4,9 +4,9 @@ from playsound import playsound
 
 class Clock: 
     # Python doesn't have function overloading
-    def __init__(self, name, timer_list = None): 
+    def __init__(self, name): 
         self.name = name
-        self.timer_list = [] if timer_list is None else timer_list
+        self.timer_list = self.get_timer_list
     
     def run(self):
         while (True):
