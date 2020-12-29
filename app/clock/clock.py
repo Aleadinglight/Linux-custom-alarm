@@ -1,6 +1,12 @@
-import time 
-from timer import Timer
+# Import python library
 from playsound import playsound
+import time 
+import sys
+from os.path import dirname, join
+
+# Import local module
+sys.path.append(join(dirname(sys.path[0]),'clocktimer'))
+from clocktimer import ClockTimer
 
 class Clock: 
     # Python doesn't have function overloading
@@ -28,5 +34,4 @@ class Clock:
 if __name__ == "__main__":
     new_clock = Clock("Clock 1")
     new_clock.trigger_alarm()
-    
     
