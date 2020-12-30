@@ -6,13 +6,12 @@ from os.path import dirname, join, abspath
 from pathlib import Path
 
 # Import local module
-a= Path(__file__).resolve().parents[1].joinpath('clocktimer')
-print(a)
-#sys.path.append(join(dirname(sys.path[0]),'clocktimer'))
-sys.path.append(str(a))
+currentFilePath = Path(__file__).resolve().parents[1]
+
+sys.path.append(str(currentFilePath.joinpath('clocktimer')))
 from clocktimer import ClockTimer
 
-sys.path.append(join(dirname(sys.path[0]),'timerio'))
+sys.path.append(str(currentFilePath.joinpath('timerio')))
 import timerio
 
 class Clock: 

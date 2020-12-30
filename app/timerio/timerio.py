@@ -1,8 +1,5 @@
 from pathlib import Path
-import sys
 
-print(sys.path[0])
-print(Path.cwd())
 print(Path(__file__).resolve().parents[2].joinpath("resources","timers"))
 
 class TimerIO:
