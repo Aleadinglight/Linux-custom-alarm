@@ -2,7 +2,6 @@
 from playsound import playsound
 import time 
 import sys
-from os.path import dirname, join, abspath
 from pathlib import Path
 
 # Import local module
