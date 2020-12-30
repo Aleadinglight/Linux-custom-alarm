@@ -2,11 +2,18 @@
 from playsound import playsound
 import time 
 import sys
-from os.path import dirname, join
+from os.path import dirname, join, abspath
+from pathlib import Path
 
 # Import local module
-sys.path.append(join(dirname(sys.path[0]),'clocktimer'))
+a= Path(__file__).resolve().parents[1].joinpath('clocktimer')
+print(a)
+#sys.path.append(join(dirname(sys.path[0]),'clocktimer'))
+sys.path.append(str(a))
 from clocktimer import ClockTimer
+
+sys.path.append(join(dirname(sys.path[0]),'timerio'))
+import timerio
 
 class Clock: 
     # Python doesn't have function overloading
@@ -32,6 +39,5 @@ class Clock:
         playsound("../../resources/sounds/RickandMorty.mp3")
 
 if __name__ == "__main__":
-    new_clock = Clock("Clock 1")
-    new_clock.trigger_alarm()
+    print("aSD")
     
