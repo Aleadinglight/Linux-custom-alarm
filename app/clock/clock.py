@@ -35,7 +35,4 @@ class Clock:
     def trigger_alarm(self): 
         print("Ring ring ring! Motherfucker!")
         playsound("../../resources/sounds/RickandMorty.mp3")
-
-if __name__ == "__main__":
-    print("aSD")
     

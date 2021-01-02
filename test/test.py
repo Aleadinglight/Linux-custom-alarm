@@ -9,3 +9,6 @@ from timerio import TimerIO
 
 def testTimerIO():
     print("test timer io")
+    
+if __name__ == "__main__":
+    print("aSD")
