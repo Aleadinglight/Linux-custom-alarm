@@ -7,8 +7,15 @@ currentFilePath = Path(__file__).resolve().parents[1]
 sys.path.append(str(currentFilePath.joinpath("app","timerio")))
 from timerio import TimerIO
 
+# Modules
+
 def testTimerIO():
-    print("test timer io")
+    timerIO = TimerIO() 
+    print("-----Testing-for-TimerIO------\n")
+    
+    print(f"File path: {timerIO.getTimerFilePath()}")
+    
+    print("\n------------------------------\n")
     
 if __name__ == "__main__":
-    print("aSD")
+    testTimerIO()

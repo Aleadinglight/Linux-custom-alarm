@@ -16,10 +16,13 @@ class TimerIO:
         print("Save to")
     
     def getTimerDirectory(self):
-        return self.timer_directory
+        return str(self.timer_directory)
     
     def getTimerFileName(self):
         return self.timer_file_name
+    
+    def getTimerFilePath(self):
+        return self.timer_directory.joinpath(self.getTimerFileName())
     
     def append(self, entry):
         print(1)
