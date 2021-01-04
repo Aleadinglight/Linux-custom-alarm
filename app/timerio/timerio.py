@@ -9,8 +9,11 @@ class TimerIO:
         
         self.timer_file_name = "timers.json"
             
-    def getTimerList(self):
-        print(1)
+    def loadTimerList(self):
+        filePath = self.getTimerFilePath()
+        file = open(filePath, 'r')
+        file.write("concaek")
+        file.close()
     
     def saveToFile(self, entry):
         print("Save to")
