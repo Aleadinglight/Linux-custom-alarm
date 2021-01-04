@@ -12,14 +12,13 @@ class TimerIO:
     def loadTimerList(self):
         filePath = self.getTimerFilePath()
         try: 
+            print("Loading timers from files...")
             file = open(filePath, 'r')
         except:
+            print("Timer saved file doesn't exist, created one...")
             file = open(filePath, 'w+')
         finally:
             file.close()
-            print('close')
-            
-        
     
     def saveToFile(self, entry):
         print("Save to")
