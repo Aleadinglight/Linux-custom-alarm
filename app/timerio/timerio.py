@@ -8,12 +8,14 @@ class TimerIO:
             self.timer_directory = Path(__file__).resolve().parents[2].joinpath("resources","timers")
         
         self.timer_file_name = "timers.json"
+        self.timer_list = None
             
     def loadTimerList(self):
         filePath = self.getTimerFilePath()
         try: 
             print("Loading timers from files...")
             file = open(filePath, 'r')
+            self.timer_list = file.read()
         except:
             print("Timer saved file doesn't exist, created one...")
             file = open(filePath, 'w+')
@@ -22,6 +24,9 @@ class TimerIO:
     
     def saveToFile(self, entry):
         print("Save to")
+    
+    def getTimerList(self):
+        return self.timer_list
     
     def getTimerDirectory(self):
         return str(self.timer_directory)

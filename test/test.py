@@ -14,7 +14,9 @@ def testTimerIO():
     print("-----Testing-for-TimerIO------\n")
     
     print(f"File path: {timerIO.getTimerFilePath()}")
+    
     timerIO.loadTimerList()
+    print(f"Timer list: {timerIO.getTimerList()}")
     print("\n------------------------------\n")
     
 if __name__ == "__main__":
