@@ -11,9 +11,15 @@ class TimerIO:
             
     def loadTimerList(self):
         filePath = self.getTimerFilePath()
-        file = open(filePath, 'r')
-        file.write("concaek")
-        file.close()
+        try: 
+            file = open(filePath, 'r')
+        except:
+            file = open(filePath, 'w+')
+        finally:
+            file.close()
+            print('close')
+            
+        
     
     def saveToFile(self, entry):
         print("Save to")
