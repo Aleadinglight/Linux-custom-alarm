@@ -17,6 +17,7 @@ def testTimerIO():
     
     timerIO.loadTimerList()
     print(f"Timer list: {timerIO.getTimerList()}")
+    timerIO.saveToFile()
     print("\n------------------------------\n")
     
 if __name__ == "__main__":

@@ -16,27 +16,23 @@ class TimerIO:
         try:
             print("Loading timers from files...")
             file_reader = open(file_path, 'r')
-            self.timer_list = file_reader.read()
+            self.timer_list = json.load(file_reader)
         except:
             print("Timer saved file doesn't exist, created one...")
-            file = open(file_path, 'w+')
+            file_reader = open(file_path, 'w+')
         finally:
-            file.close()
+            file_reader.close()
 
     def saveToFile(self):
-        data = {
-            'name': 'Bob',
-            'age': 12,
-            'children': None
-        }
+        data = self.getTimerList()
         file_path = self.getTimerFilePath()
         try:
-            file = open(file_path, 'w+')
-            json.dump(data, file)
-        except:
-            print("Error!! Failed to save data to file!!")
+            file_writer = open(file_path, 'w+')
+            json.dump(data, file_writer)
+        except Exception as e:
+            print(f"Failed to save data to file!!\nError: {e}")
         finally:
-            file.close()
+            file_writer.close()
             
 
     def getTimerList(self):
