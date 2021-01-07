@@ -10,6 +10,9 @@ from timerio import TimerIO
 sys.path.append(str(currentFilePath.joinpath("app","downloader")))
 from downloader import Downloader
 
+sys.path.append(str(currentFilePath.joinpath("app","clock")))
+from clock import Clock
+
 # Modules
 
 def testTimerIO():
@@ -33,5 +36,9 @@ def testDownloader():
     print(f"Number of sound files: {new_downloader.calculateSoundFile()}")
     new_downloader.download('https://www.youtube.com/watch?v=AwSra5p8MDw&ab_channel=ArthurZee024', 'GoodMorningVietName')
     
+def testClock():
+    new_clock = Clock()
+    new_clock.run()
+    
 if __name__ == "__main__":
-    testDownloader()
+    testClock()
