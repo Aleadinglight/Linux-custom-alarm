@@ -9,7 +9,7 @@ class TimerIO:
             self.timer_directory = Path(__file__).resolve().parents[2].joinpath("resources", "timers")
 
         self.timer_file_name = "timers.json"
-        self.timer_list = None
+        self.timer_list = []
 
     def loadTimerList(self):
         file_path = self.getTimerFilePath()
@@ -47,8 +47,12 @@ class TimerIO:
     def getTimerFilePath(self):
         return self.timer_directory.joinpath(self.getTimerFileName())
 
-    def append(self, entry):
-        print(1)
+    def append(self, timer_entry):
+        if self.timer_list == None:
+            self.timer_list = []
+    
+        self.timer_list.append(timer_entry)
+        print(self.timer_list)
 
     def delete(self, id):
         print(2)
