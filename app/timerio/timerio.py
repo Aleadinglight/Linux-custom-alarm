@@ -52,7 +52,6 @@ class TimerIO:
             self.timer_list = []
     
         self.timer_list.append(timer_entry)
-        print(self.timer_list)
 
     def delete(self, id):
         print(2)

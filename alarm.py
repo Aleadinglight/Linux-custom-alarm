@@ -12,12 +12,17 @@ sys.path.append(str(currentFilePath.joinpath("timerio")))
 from timerio import TimerIO
 
 def add_timer(timer_entry_raw):
+    # Create timer entry json object from raw data
     timer_entry_json = {
-        "time": timer_entry_raw[0],
-        "sound_id": timer_entry_raw[1],
+        "name": timer_entry_raw[0],
+        "time": timer_entry_raw[1],
+        "sound_id": timer_entry_raw[2],
     }
+    
+    # Load timer list
     timerIO = TimerIO()
     timerIO.loadTimerList()
+    # Append timer entry to timer list and save
     timerIO.append(timer_entry_json)
     timerIO.saveToFile()
     
@@ -34,9 +39,9 @@ if __name__ == "__main__":
         "--add-timer",
         help="add a new timer to the clock",
         action="store",
-        metavar=("<timer>","<alarm-sound>"),
+        metavar=("<name>","<timer>","<alarm-sound>"),
         dest="timer",
-        nargs=2
+        nargs=3
     )
     
     parser.add_argument(
