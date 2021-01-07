@@ -18,9 +18,12 @@ def testTimerIO():
     timerIO.loadTimerList()
     print(f"Timer list: {timerIO.getTimerList()}")
     timerIO.saveToFile()
+    
+    sound_list = timerIO.getSoundList()
+    for index, sound in enumerate(sound_list):
+        print(f"[{index}] {sound}")
+    
     print("\n------------------------------\n")
-    
-def testAlarmCLI(): 
-    
+
 if __name__ == "__main__":
     testTimerIO()
