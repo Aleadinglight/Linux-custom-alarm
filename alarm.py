@@ -25,8 +25,7 @@ def add_timer(timer_entry_raw):
     # Append timer entry to timer list and save
     timerIO.append(timer_entry_json)
     timerIO.saveToFile()
-    
-    
+    print("Successfully dded timer to clock...")
     
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
