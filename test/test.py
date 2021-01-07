@@ -20,5 +20,7 @@ def testTimerIO():
     timerIO.saveToFile()
     print("\n------------------------------\n")
     
+def testAlarmCLI(): 
+    
 if __name__ == "__main__":
     testTimerIO()
