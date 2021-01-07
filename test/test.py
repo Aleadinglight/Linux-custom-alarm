@@ -7,6 +7,9 @@ currentFilePath = Path(__file__).resolve().parents[1]
 sys.path.append(str(currentFilePath.joinpath("app","timerio")))
 from timerio import TimerIO
 
+sys.path.append(str(currentFilePath.joinpath("app","downloader")))
+from downloader import Downloader
+
 # Modules
 
 def testTimerIO():
@@ -25,5 +28,10 @@ def testTimerIO():
     
     print("\n------------------------------\n")
 
+def testDownloader():
+    new_downloader = Downloader()
+    print(f"Number of sound files: {new_downloader.calculateSoundFile()}")
+    new_downloader.download('https://www.youtube.com/watch?v=AwSra5p8MDw&ab_channel=ArthurZee024', 'GoodMorningVietName')
+    
 if __name__ == "__main__":
-    testTimerIO()
+    testDownloader()
