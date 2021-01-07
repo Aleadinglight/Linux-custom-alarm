@@ -19,7 +19,7 @@ class Downloader:
                 count+=1
         return count
 
-    def download(self, link, name):
+    def download(self, name, link):
         self.current_id += 1
         downloadPath = str(
             self.download_directory.joinpath(f"{self.current_id}_{name}.%(ext)s"))

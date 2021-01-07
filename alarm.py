@@ -12,6 +12,9 @@ from clocktimer import ClockTimer
 sys.path.append(str(currentFilePath.joinpath("timerio")))
 from timerio import TimerIO
 
+sys.path.append(str(currentFilePath.joinpath("downloader")))
+from downloader import Downloader
+
 def add_timer(timer_entry_raw):
     # Create timer entry json object from raw data
     timer_entry_json = {
@@ -38,6 +41,13 @@ def display_timers():
         print(f"*Timer No.{index}*")
         print(f"Name: {timer['name']}")
         print(f"Time: {timer['time']}\n")
+
+def download_sound(sound_info):
+    name = sound_info[0]
+    link = sound_info[1]
+    new_downloader = Downloader()
+    new_downloader.download(name, link)
+        
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -71,6 +81,16 @@ if __name__ == "__main__":
         action="store_true",
         dest="show_timer_list"
     )
+    
+    parser.add_argument(
+        "-d", 
+        "--download-alarm-sound",
+        help="download new alarm sound for timer",
+        action="store",
+        dest="sound_info",
+        metavar=("<name>", "<link>"),
+        nargs=2
+    )
 
     # Get the arguments from the user
     args = parser.parse_args()
@@ -80,5 +100,8 @@ if __name__ == "__main__":
         add_timer(args.timer)
     elif (args.remove_timer_id):
         print("remove timer")
-    elif  (args.show_timer_list):
+    elif (args.show_timer_list):
         display_timers() 
+    elif (args.sound_info):
+        download_sound(args.sound_info)
+    
