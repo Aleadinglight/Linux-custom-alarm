@@ -49,6 +49,20 @@ def download_sound(sound_info):
     new_downloader.download(name, link)
         
 
+def show_audio():
+    # Instantiate a new TimerIO object
+    timerIO = TimerIO()
+    # Load the available audio files
+    timerIO.loadSoundList()
+    audio_list = timerIO.getSoundList()
+    
+    for audio_file in audio_list:
+        audio_file_split = audio_file.split("_", 1)
+        index = audio_file_split[0]
+        name = audio_file_split[1]
+        print(f"[{index}] {name}")
+    
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         prog= "alarm",
@@ -91,7 +105,15 @@ if __name__ == "__main__":
         metavar=("<name>", "<link>"),
         nargs=2
     )
-
+    
+    parser.add_argument(
+        "-s", 
+        "--audio-sound-list",
+        help="show available audio files for the alarm",
+        action="store_true",
+        dest="show_audio"
+    )
+    
     # Get the arguments from the user
     args = parser.parse_args()
 
@@ -104,4 +126,6 @@ if __name__ == "__main__":
         display_timers() 
     elif (args.sound_info):
         download_sound(args.sound_info)
+    elif (args.show_audio):
+        show_audio()
     
