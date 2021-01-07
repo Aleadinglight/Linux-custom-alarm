@@ -1,5 +1,6 @@
 import argparse
 import sys
+import json
 from pathlib import Path
 
 # Import local module
@@ -25,8 +26,19 @@ def add_timer(timer_entry_raw):
     # Append timer entry to timer list and save
     timerIO.append(timer_entry_json)
     timerIO.saveToFile()
-    print("Successfully dded timer to clock...")
+    print("Successfully added timer to clock...")
     
+def display_timers():
+    # Load timer list
+    timerIO = TimerIO()
+    timerIO.loadTimerList()
+    timer_list = timerIO.getTimerList()
+    print("\n-------------List of timers----------------")
+    for index, timer in enumerate(timer_list):
+        print(f"*Timer No.{index}*")
+        print(f"Name: {timer['name']}")
+        print(f"Time: {timer['time']}\n")
+        
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         prog= "alarm",
@@ -69,4 +81,4 @@ if __name__ == "__main__":
     elif (args.remove_timer_id):
         print("remove timer")
     elif  (args.show_timer_list):
-        print("display timer list")
+        display_timers()
