@@ -6,6 +6,9 @@ from pathlib import Path
 # Import local module
 currentFilePath = Path(__file__).resolve().parents[0].joinpath("app")
 
+sys.path.append(str(currentFilePath.joinpath("clock")))
+from clock import Clock
+
 sys.path.append(str(currentFilePath.joinpath("clocktimer")))
 from clocktimer import ClockTimer
 
@@ -78,6 +81,9 @@ def show_audio():
         name = audio_file_split[1]
         print(f"[{index}] {name}")
     
+def run_program():
+    new_clock = Clock()
+    new_clock.run()
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -130,6 +136,14 @@ if __name__ == "__main__":
         dest="show_audio"
     )
     
+    parser.add_argument(
+        "-start", 
+        "--start-clock",
+        help="start the alarm clock",
+        action="store_true",
+        dest="run"
+    )
+    
     # Get the arguments from the user
     args = parser.parse_args()
 
@@ -144,4 +158,6 @@ if __name__ == "__main__":
         download_sound(args.sound_info)
     elif (args.show_audio):
         show_audio()
+    elif (args.run):
+        run_program()
     
