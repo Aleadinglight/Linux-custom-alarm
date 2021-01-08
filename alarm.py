@@ -36,11 +36,27 @@ def display_timers():
     timerIO = TimerIO()
     timerIO.loadTimerList()
     timer_list = timerIO.getTimerList()
+    
+    # Load audio file names
+    timerIO.loadSoundList()
+    audio_files = timerIO.getSoundList()
+    
+    # Create a dictionary for audio lookup table 
+    audio_lookup = {}
+    
+    for audio_file in audio_files:
+        audio_file_split = audio_file.split("_", 1)
+        audio_id = audio_file_split[0]
+        name = audio_file_split[1]
+        # Update dictionary
+        audio_lookup[int(audio_id)] = name
+        
     print("\n-------------List of timers----------------")
     for index, timer in enumerate(timer_list):
         print(f"*Timer No.{index}*")
         print(f"Name: {timer['name']}")
-        print(f"Time: {timer['time']}\n")
+        print(f"Time: {timer['time']}")
+        print(f"Alarm sound: {audio_lookup[int(timer['sound_id'])]}\n")
 
 def download_sound(sound_info):
     name = sound_info[0]
