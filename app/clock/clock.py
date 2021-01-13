@@ -56,10 +56,8 @@ class Clock:
         print("Ring ring ring!")        
         for audio_file in self.audio_list:
             audio_id = audio_file.split('_', 1)[0]
-            print(f"{input_audio_id} vs {audio_id}")
             if (audio_id == input_audio_id):
                 audio_path = str(Path(self.audio_directory).joinpath(audio_file))
-                print(audio_path)
                 pygame.init()
                 pygame.mixer.init()
                 pygame.mixer.music.load(audio_path)
