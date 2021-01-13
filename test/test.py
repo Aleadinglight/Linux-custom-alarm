@@ -38,7 +38,8 @@ def testDownloader():
     
 def testClock():
     new_clock = Clock()
-    new_clock.run()
+    new_clock.alarm_async("1")
+    new_clock.alarm_async("1")
     
 if __name__ == "__main__":
     testClock()

@@ -3,7 +3,8 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
 
 # Local
-/resources
+*.wav
+timers.json
 
 ### Python ###
 # Byte-compiled / optimized / DLL files

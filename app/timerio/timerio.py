@@ -68,7 +68,7 @@ class TimerIO:
 
     def loadSoundList(self):
         for temp_file in os.listdir(self.getSoundDirectory()):
-            if (temp_file.endswith(".mp3")):
+            if (temp_file.endswith(".wav")):
                 self.sound_list.append(temp_file)
 
     def getSoundList(self):

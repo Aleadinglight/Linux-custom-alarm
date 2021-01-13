@@ -15,7 +15,7 @@ class Downloader:
     def calculateSoundFile(self):
         count = 0
         for temp_file in os.listdir(self.getDownloadDirectory()):
-            if (temp_file.endswith(".mp3")):
+            if (temp_file.endswith(".wav")):
                 count+=1
         return count
 
@@ -27,7 +27,7 @@ class Downloader:
             'format': 'bestaudio/best',
             'postprocessors': [{
                 'key': 'FFmpegExtractAudio',
-                'preferredcodec': 'mp3',
+                'preferredcodec': 'wav',
                 'preferredquality': '192',
             }],
             'outtmpl': downloadPath
